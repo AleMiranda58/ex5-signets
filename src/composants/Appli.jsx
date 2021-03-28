@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 import AjouterDossier from './AjouterDossier';
 import * as crudDossiers from '../services/crud-dossiers';
 import * as crudUtilisateurs from '../services/crud-utilisateurs';
+import TriageDossiers from './TriageDossiers';
 
 export default function Appli() {
   // État de l'utilisateur (pas connecté = null / connecté = objet FB-Auth spécial)
@@ -57,6 +58,7 @@ export default function Appli() {
           <>
             <Entete utilisateur={utilisateur} />
             <section className="contenu-principal">
+            <TriageDossiers />
               <ListeDossiers utilisateur={utilisateur} etatDossiers={etatDossiers} />
               <AjouterDossier ouvert={ouvertAD} setOuvert={setOuvertAD} gererAjout={gererAjouter} />
               <Fab onClick={() => setOuvertAD(true)} className="ajoutRessource" color="primary" aria-label="Ajouter dossier">
